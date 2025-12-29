@@ -8,17 +8,18 @@ const ResetPassword = () => {
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      const res = await api.post(`/auth/reset-password/${token}`, {
-        password
-      });
-      setMessage(res.data.message);
-    } catch (error) {
-      setMessage(error.response?.data?.message || 'Invalid or expired link');
-    }
-  };
+  try {
+    const res = await api.post(`/api/auth/reset-password/${token}`, {
+      password
+    });
+    setMessage(res.data.message);
+  } catch (error) {
+    setMessage(error.response?.data?.message || 'Invalid or expired link');
+  }
+};
+
 
   return (
     <div className="container mt-5">

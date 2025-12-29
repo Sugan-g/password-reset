@@ -6,25 +6,22 @@ const ForgotPassword = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setError('');
+  setSuccess('');
 
-    // clear old messages
-    setError('');
-    setSuccess('');
-
-    try {
-      const res = await api.post('/auth/forgot-password', { email });
-      setSuccess(res.data.message); // success from backend
-    } catch (err) {
-      // ✅ THIS IS THE EXACT FIX
-      if (err.response && err.response.data && err.response.data.message) {
-        setError(err.response.data.message); // "User not found"
-      } else {
-        setError('Email does not exist in database');
-      }
+  try {
+    const res = await api.post('/api/auth/forgot-password', { email });
+    setSuccess(res.data.message);
+  } catch (err) {
+    if (err.response?.data?.message) {
+      setError(err.response.data.message);
+    } else {
+      setError('Something went wrong');
     }
-  };
+  }
+};
 
   return (
     <div className="min-vh-100 d-flex justify-content-center align-items-center bg-light">
