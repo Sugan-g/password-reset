@@ -79,3 +79,13 @@ npm run dev
 ✔ Secure
 ✔ Meets all assignment requirements
 ✔ Ready for evaluation
+
+## Email Note
+
+Due to SMTP restrictions on free hosting (Render) with Gmail,
+email delivery may be delayed or blocked.
+
+For demonstration purposes, the password reset link
+is logged in the backend console.
+
+This approach is commonly used in development environments.
