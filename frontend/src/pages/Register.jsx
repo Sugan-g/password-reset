@@ -13,7 +13,7 @@ export default function Register() {
         try {
             await api.post('/api/auth/register', { name, email, password });
             alert('Registration successful. Please login.');
-            navigate('/login');
+            navigate('/api/auth/login');
         } catch (err) {
             alert(err.response?.data?.message || 'Registration failed');
         }
@@ -52,7 +52,7 @@ export default function Register() {
             </form>
 
             <div className="mt-3 text-center">
-                <Link to="/login">Already have an account? Login</Link>
+                <Link to="/api/auth/login">Already have an account? Login</Link>
             </div>
         </div>
     );

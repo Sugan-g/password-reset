@@ -44,7 +44,7 @@ export default function Login() {
             </form>
 
             <div className="mt-3 text-center">
-                <Link to="/register">Register</Link> |{' '}
+                <Link to="/api/auth/register">Register</Link> |{' '}
                 <Link to="/forgot-password">Forgot Password?</Link>
             </div>
         </div>
