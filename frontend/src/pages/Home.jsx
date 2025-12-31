@@ -103,7 +103,7 @@ export default function Home() {
 
               {isLogin && (
                 <div className="text-center mt-2">
-                  <Link to="/api/auth/forgot-password">Forgot Password?</Link>
+                  <Link to="/forgot-password">Forgot Password?</Link> 
                 </div>
               )}
 
