@@ -16,12 +16,12 @@ export default function Home() {
 
     try {
       if (isLogin) {
-        const res = await api.post('/login', { email, password });
+        const res = await api.post('/api/auth/login', { email, password });
         localStorage.setItem('token', res.data.token);
         alert('Login successful');
         navigate('/dashboard'); // redirect after login
       } else {
-        await api.post('/register', { email, password });
+        await api.post('/api/auth/register', { email, password });
         alert('Registration successful. Please login.');
         setIsLogin(true);
       }
