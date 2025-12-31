@@ -12,7 +12,7 @@ export default function Register() {
         setLoading(true);
 
         try {
-            await api.post('/register', { email, password });
+            await api.post('/api/auth/register', { email, password });
             alert('Registration successful. Please login.');
         } catch (err) {
             alert(err.response?.data?.message || 'Registration failed');

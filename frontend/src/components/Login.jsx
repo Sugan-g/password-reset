@@ -15,7 +15,7 @@ export default function Login() {
         } catch (err) {
             alert(err.response?.data?.message || 'Login failed');
         }
-    };
+    }; 
 
     return (
         <div className="container mt-5 col-md-4">
