@@ -19,7 +19,7 @@ export default function Home() {
         const res = await api.post('/api/auth/login', { email, password });
         localStorage.setItem('token', res.data.token);
         alert('Login successful');
-        navigate('/dashboard'); // redirect after login
+        navigate('/forgot-password'); // redirect after login
       } else {
         await api.post('/api/auth/register', { email, password });
         alert('Registration successful. Please login.');
