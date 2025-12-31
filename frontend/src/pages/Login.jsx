@@ -13,7 +13,7 @@ export default function Login() {
             const res = await api.post('/api/auth/login', { email, password });
             localStorage.setItem('token', res.data.token);
             alert('Login Successful');
-            navigate('/dashboard'); // redirect after login
+            navigate('/api/auth/login'); // redirect after login
         } catch (err) {
             alert(err.response?.data?.message || 'Login failed');
         }
@@ -45,7 +45,7 @@ export default function Login() {
 
             <div className="mt-3 text-center">
                 <Link to="/api/auth/register">Register</Link> |{' '}
-                <Link to="/forgot-password">Forgot Password?</Link>
+                <Link to="/api/auth/forgot-password">Forgot Password?</Link>
             </div>
         </div>
     );
