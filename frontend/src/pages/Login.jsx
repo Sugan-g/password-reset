@@ -5,7 +5,7 @@ import api from '../services/api';
 export default function Login() {
   const navigate = useNavigate();
 
-  // 🔐 Check auth
+  //  Check auth
   const token = localStorage.getItem('token');
   if (token) {
     return <Navigate to="/" replace />;
@@ -27,10 +27,10 @@ export default function Login() {
         password,
       });
 
-      // ✅ Save token
+      //  Save token
       localStorage.setItem('token', res.data.token);
 
-      // ✅ Redirect after login
+      // Redirect after login
       navigate('/', { replace: true });
 
     } catch (err) {
@@ -85,7 +85,7 @@ export default function Login() {
             <div className="text-center mt-3">
               <p>
                 No account?{' '}
-                <Link to="/register">Register</Link>
+                <Link to="/">Register</Link>
               </p>
               <Link to="/forgot-password">
                 Forgot Password?
