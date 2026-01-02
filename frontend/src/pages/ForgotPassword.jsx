@@ -35,7 +35,7 @@ export default function ForgotPassword() {
             {message && <div className="alert alert-info mt-3">{message}</div>}
 
             <div className="mt-3 text-center">
-                <Link to="/api/auth/login">Back to Login</Link>
+                <Link to="/login">Back to Login</Link>
             </div>
         </div>
     );
