@@ -6,7 +6,7 @@ export default function Navbar() {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    navigate('/');
+    navigate('/login');
   };
 
   return (
@@ -17,7 +17,7 @@ export default function Navbar() {
         <div className="ms-auto">
           {!token ? (
             <>
-              <Link className="nav-link d-inline text-white me-3" to="/">
+              <Link className="nav-link d-inline text-white me-3" to="/login">
                 Login
               </Link>
               <Link className="nav-link d-inline text-white" to="/forgot-password">
