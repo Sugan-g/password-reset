@@ -1,18 +1,11 @@
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    setIsLoggedIn(!!localStorage.getItem('token'));
-  }, [location]); // 🔥 re-check on every route change
+  const token = localStorage.getItem('token');
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    setIsLoggedIn(false);
     navigate('/');
   };
 
@@ -22,19 +15,19 @@ export default function Navbar() {
         <Link className="navbar-brand" to="/">AuthApp</Link>
 
         <div className="ms-auto">
-          {!isLoggedIn ? (
+          {!token ? (
             <>
               <Link className="nav-link d-inline text-white me-3" to="/">
-                Home
+                Login
               </Link>
-              <Link className="nav-link d-inline text-white me-3" to="/forgot-password">
+              <Link className="nav-link d-inline text-white" to="/forgot-password">
                 Forgot Password
               </Link>
             </>
           ) : (
             <button
-              className="btn btn-outline-light"
               onClick={handleLogout}
+              className="btn btn-danger btn-sm"
             >
               Logout
             </button>
