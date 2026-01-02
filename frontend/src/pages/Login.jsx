@@ -11,10 +11,12 @@ export default function Login() {
         e.preventDefault();
         try {
             const res = await api.post('/api/auth/login', { email, password });
+            console.log('Login response:', res.data); // for debugging
             localStorage.setItem('token', res.data.token);
             alert('Login Successful');
-            navigate('/forgot-password'); // redirect after login
+            navigate('/forgot-password'); // redirect to frontend route
         } catch (err) {
+            console.error(err);
             alert(err.response?.data?.message || 'Login failed');
         }
     };
@@ -44,8 +46,9 @@ export default function Login() {
             </form>
 
             <div className="mt-3 text-center">
-                <Link to="/api/auth/register">Register</Link> |{' '}
-                <Link to="/api/auth/forgot-password">Forgot Password?</Link>
+                {/* Frontend routes, not backend API endpoints */}
+                <Link to="/register">Register</Link> |{' '}
+                <Link to="/forgot-password">Forgot Password?</Link>
             </div>
         </div>
     );
